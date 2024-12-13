@@ -6,7 +6,7 @@ tags:
   - provider/datadog
 ---
 
-# Component: `datadog`
+# Component: `datadog-monitor`
 
 This component is responsible for provisioning Datadog monitors and assigning Datadog roles to the monitors.
 
