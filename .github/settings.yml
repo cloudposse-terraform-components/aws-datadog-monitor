@@ -5,5 +5,3 @@ repository:
   description: This component is responsible for provisioning Datadog monitors and assigning Datadog roles to the monitors
   homepage: https://cloudposse.com/accelerate
   topics: terraform, terraform-component
-
-
