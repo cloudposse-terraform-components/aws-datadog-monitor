@@ -1,5 +1,5 @@
 module "datadog_configuration" {
-  source  = "../datadog-configuration/modules/datadog_keys"
+  source  = "github.com/cloudposse-terraform-components/aws-datadog-credentials//src/modules/datadog_keys?ref=tags/v1.535.2"
   enabled = true
   context = module.this.context
 }
