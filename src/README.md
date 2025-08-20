@@ -8,10 +8,9 @@ tags:
 
 # Component: `datadog-monitor`
 
-This component is responsible for provisioning Datadog monitors and assigning Datadog roles to the monitors.
+This component provisions Datadog monitors and assigns Datadog roles to those monitors.
 
-It depends on the `datadog-configuration` component to get the Datadog API keys.
-
+It depends on the `datadog-configuration` component to obtain Datadog API keys.
 ## Usage
 
 **Stack Level**: Regional
@@ -33,22 +32,22 @@ components:
 
 ## Conventions
 
-- Treat datadog like a separate cloud provider with integrations
+- Treat Datadog like a separate cloud provider with integrations
   ([datadog-integration](https://docs.cloudposse.com/components/library/aws/datadog-integration)) into your accounts.
 
-- Use the `catalog` convention to define a step of alerts. You can use ours or define your own.
-  [https://github.com/cloudposse/terraform-datadog-platform/tree/master/catalog/monitors](https://github.com/cloudposse/terraform-datadog-platform/tree/master/catalog/monitors)
+- Use the `catalog` convention to define a set of alerts. You can use ours or define your own:
+  https://github.com/cloudposse/terraform-datadog-platform/tree/master/catalog/monitors
 
-- The monitors catalog for the datadog-monitor component support datadog monitor exports. You can use
+- The monitors catalog for this component supports Datadog monitor exports. You can use
   [the status page of a monitor to export it from 'settings'](https://docs.datadoghq.com/monitors/manage/status/#settings).
-  You can add the export to existing files or make new ones. Because the export is json formatted, it's also yaml
-  compatible. If you prefer, you can convert the export to yaml using your text editor or a cli tool like `yq`.
+  You can add the export to existing files or make new ones. Because the export is JSON formatted, it's also YAML
+  compatible. If you prefer, you can convert the export to YAML using your text editor or a CLI tool like `yq`.
 
 ## Adjust Thresholds per Stack
 
-Since there are so many parameters that may be adjusted for a given monitor, we define all monitors through YAML. By
-convention, we define the **default monitors** that should apply to all environments, and then adjust the thresholds per
-environment. This is accomplished using the `datadog-monitor` components variable `local_datadog_monitors_config_paths`
+Since there are many parameters that may be adjusted for a given monitor, we define all monitors through YAML. By
+convention, we define the default monitors that should apply to all environments, and then adjust the thresholds per
+environment. This is accomplished using the `datadog-monitor` component variable `local_datadog_monitors_config_paths`,
 which defines the path to the YAML configuration files. By passing a path for `dev` and `prod`, we can define
 configurations that are different per environment.
 
@@ -67,7 +66,7 @@ components:
           - catalog/monitors/dev/*.yaml # note this line
 ```
 
-For `prod` stack:
+For the `prod` stack:
 
 ```
 components:
@@ -143,15 +142,14 @@ elb-lb-httpcode-5xx-notify:
 
 ### Inheritance
 
-The important thing to note here is that the default yaml is applied to every stage that it's deployed to. For dev
-specifically however, we want to override the thresholds and priority for this monitor. This merging is done by key of
-the monitor, in this case `elb-lb-httpcode-5xx-notify`.
+The default YAML is applied to every stage that it's deployed to. For `dev`, we override the thresholds and priority
+for this monitor. This merging is done by key of the monitor, in this case `elb-lb-httpcode-5xx-notify`.
 
 ### Templating
 
-The second thing to note is `${ dd_env }`. This is **terraform** templating in action. While double braces (`{{ env }}`)
-refers to datadog templating, `${ dd_env }` is a template variable we pass into our monitors. in this example we use it
-to specify a grouping int he message. This value is passed in and can be overridden via stacks.
+The `${ dd_env }` syntax is Terraform templating. While double braces (`{{ env }}`) refer to Datadog templating, `${ dd_env }`
+is a template variable we pass into our monitors. In this example we use it to specify a grouping in the message. This
+value is passed in and can be overridden via stacks.
 
 We pass a value via:
 
@@ -169,7 +167,7 @@ components:
           dd_env: "dev"
 ```
 
-This allows us to further use inheritance from stack configuration to keep our monitors dry, but configurable.
+This allows us to further use inheritance from stack configuration to keep our monitors DRY but configurable.
 
 Another available option is to use our catalog as base monitors and then override them with your specific fine tuning.
 
@@ -192,8 +190,8 @@ will only be picked up by an integration action when `event_type` is `synthetics
 This is important if we need to distinguish between monitors and synthetics in OpsGenie, which is the case when we want
 to ensure clean messaging on OpsGenie incidents in Statuspage.
 
-<!-- prettier-ignore-start -->
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -262,20 +260,21 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_datadog_monitor_names"></a> [datadog\_monitor\_names](#output\_datadog\_monitor\_names) | Names of the created Datadog monitors |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-<!-- prettier-ignore-end -->
+<!-- markdownlint-restore -->
 
-## Related How-to Guides
 
-- [How to Monitor Everything with Datadog](https://docs.cloudposse.com/layers/monitoring/datadog/)
-
-## Component Dependencies
-
-- [datadog-integration](https://docs.cloudposse.com/components/library/aws/datadog-integration/)
 
 ## References
 
-- [cloudposse/terraform-aws-components](https://github.com/cloudposse/terraform-aws-components/tree/main/modules/datadog-monitor) -
-  Cloud Posse's upstream component
+
+- [cloudposse/terraform-aws-components (datadog-monitor)](https://github.com/cloudposse/terraform-aws-components/tree/main/modules/datadog-monitor) - Cloud Posse's upstream component
+
+- [How to Monitor Everything with Datadog](https://docs.cloudposse.com/layers/monitoring/datadog/) - 
+
+- [datadog-integration component](https://docs.cloudposse.com/components/library/aws/datadog-integration/) - 
+
+
+
 
 [<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse-terraform-components/aws-datadog-monitor&utm_content=)
+
