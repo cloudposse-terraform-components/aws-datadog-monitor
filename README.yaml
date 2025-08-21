@@ -186,9 +186,9 @@ usage: |-
   to ensure clean messaging on OpsGenie incidents in Statuspage.
 
 references:
-  - name: cloudposse/terraform-aws-components (datadog-monitor)
-    description: Cloud Posse's upstream component
-    url: https://github.com/cloudposse/terraform-aws-components/tree/main/modules/datadog-monitor
+  - name: cloudposse-terraform-components
+    url: https://github.com/orgs/cloudposse-terraform-components/repositories
+    description: "Cloud Posse's upstream component"
   - name: How to Monitor Everything with Datadog
     description: ""
     url: https://docs.cloudposse.com/layers/monitoring/datadog/
