@@ -267,7 +267,7 @@ No resources.
 ## References
 
 
-- [cloudposse/terraform-aws-components (datadog-monitor)](https://github.com/cloudposse/terraform-aws-components/tree/main/modules/datadog-monitor) - Cloud Posse's upstream component
+- [cloudposse-terraform-components](https://github.com/orgs/cloudposse-terraform-components/repositories) - Cloud Posse's upstream component
 
 - [How to Monitor Everything with Datadog](https://docs.cloudposse.com/layers/monitoring/datadog/) - 
 
