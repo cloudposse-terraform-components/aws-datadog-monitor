@@ -1,0 +1,16 @@
+components:
+  terraform:
+    datadog-monitor/disabled:
+      metadata:
+        component: target
+      vars:
+        enabled: false
+        name: datadog-monitor
+        datadog_monitor_globals:
+          groupby_simple_monitor: false
+          new_group_delay: 0
+          priority: 3
+          renotify_occurrences: 0
+          renotify_statuses: [ ]
+          validate: true
+

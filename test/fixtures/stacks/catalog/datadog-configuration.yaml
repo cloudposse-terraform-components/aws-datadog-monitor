@@ -1,0 +1,11 @@
+components:
+  terraform:
+    datadog-configuration:
+      vars:
+        enabled: true
+        name: datadog-configuration
+        datadog_secrets_store_type: SSM
+        datadog_site_url: us5.datadoghq.com
+        datadog_secrets_source_store_account_stage: auto
+        datadog_secrets_source_store_account_region: "us-east-2"
+

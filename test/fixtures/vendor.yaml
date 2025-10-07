@@ -1,0 +1,26 @@
+apiVersion: atmos/v1
+kind: AtmosVendorConfig
+metadata:
+  name: fixtures
+  description: Atmos vendoring manifest
+spec:
+  sources:
+    # https://github.com/cloudposse-terraform-components/aws-account-map
+    - component: "account-map"
+      source: github.com/cloudposse-terraform-components/aws-account-map.git//src?ref={{.Version}}
+      version: v1.535.2
+      targets:
+        - "components/terraform/account-map"
+      included_paths:
+        - "**/**"
+      excluded_paths: []
+
+    - component: "datadog-configuration"
+      source: github.com/cloudposse-terraform-components/aws-datadog-credentials.git//src?ref={{.Version}}
+      version: v1.535.10
+      targets:
+        - "components/terraform/datadog-configuration"
+      included_paths:
+        - "**/**"
+      excluded_paths: []
+
