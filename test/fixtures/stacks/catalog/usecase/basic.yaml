@@ -2,12 +2,12 @@ components:
   terraform:
     datadog-monitor/basic:
       metadata:
-        component: target
+        component: datadog-monitor
       vars:
         enabled: true
         name: datadog-monitor
         local_datadog_monitors_config_paths:
-          - catalog/monitors/defaults/*.yaml
+          - "catalog/monitors/defaults/*"
         datadog_monitor_globals:
           groupby_simple_monitor: false
           new_group_delay: 0

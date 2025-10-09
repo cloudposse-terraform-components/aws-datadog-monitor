@@ -2,7 +2,7 @@ components:
   terraform:
     datadog-monitor/disabled:
       metadata:
-        component: target
+        component: datadog-monitor
       vars:
         enabled: false
         name: datadog-monitor
