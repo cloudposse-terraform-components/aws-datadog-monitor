@@ -7,7 +7,7 @@ components:
         enabled: true
         name: datadog-monitor
         local_datadog_monitors_config_paths:
-          - "catalog/monitors/defaults/*"
+          - "catalog/monitors/*"
         datadog_monitor_globals:
           groupby_simple_monitor: false
           new_group_delay: 0
