@@ -88,7 +88,7 @@ func (s *ComponentSuite) SetupSuite() {
 	// Add the key to /datadog/<RANDOMID>/datadog_app_key to avoid
 	// conflicts during parallel tests and remove the key after the test.
 	s.datadogAppKey = os.Getenv("DD_APP_KEY")
-	if s.datadogAPIKey == "" {
+	if s.datadogAppKey == "" {
 		s.T().Fatal("DD_APP_KEY environment variable must be set")
 	}
 
