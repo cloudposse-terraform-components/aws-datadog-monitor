@@ -49,28 +49,28 @@ func (s *ComponentSuite) TestBasicDatadogMonitor() {
 	s.DriftTest(component, stack, nil)
 }
 
-// func (s *ComponentSuite) TestEnabledFlag() {
-// 	const component = "datadog-monitor/disabled"
-// 	const stack = "default-test"
-// 	const awsRegion = "us-east-2"
+func (s *ComponentSuite) TestEnabledFlag() {
+	const component = "datadog-monitor/disabled"
+	const stack = "default-test"
+	const awsRegion = "us-east-2"
 
-// 	randomID := strings.ToLower(random.UniqueId())
+	randomID := strings.ToLower(random.UniqueId())
 
-// 	// Store the Datadog API key in SSM for the duration of the test.
-// 	apiKeyPath := fmt.Sprintf("/datadog/%s/datadog_api_key", randomID)
-// 	awsTerratest.PutParameter(s.T(), s.awsRegion, apiKeyPath, "Datadog API Key", s.datadogAPIKey)
+	// Store the Datadog API key in SSM for the duration of the test.
+	apiKeyPath := fmt.Sprintf("/datadog/%s/datadog_api_key", randomID)
+	awsTerratest.PutParameter(s.T(), s.awsRegion, apiKeyPath, "Datadog API Key", s.datadogAPIKey)
 
-// 	// Store the Datadog App key in SSM for the duration of the test.
-// 	appKeyPath := fmt.Sprintf("/datadog/%s/datadog_app_key", randomID)
-// 	awsTerratest.PutParameter(s.T(), s.awsRegion, appKeyPath, "Datadog App Key", s.datadogAppKey)
+	// Store the Datadog App key in SSM for the duration of the test.
+	appKeyPath := fmt.Sprintf("/datadog/%s/datadog_app_key", randomID)
+	awsTerratest.PutParameter(s.T(), s.awsRegion, appKeyPath, "Datadog App Key", s.datadogAppKey)
 
-// 	defer func() {
-// 		awsTerratest.DeleteParameter(s.T(), awsRegion, apiKeyPath)
-// 		awsTerratest.DeleteParameter(s.T(), awsRegion, appKeyPath)
-// 	}()
+	defer func() {
+		awsTerratest.DeleteParameter(s.T(), awsRegion, apiKeyPath)
+		awsTerratest.DeleteParameter(s.T(), awsRegion, appKeyPath)
+	}()
 
-// 	s.VerifyEnabledFlag(component, stack, nil)
-// }
+	s.VerifyEnabledFlag(component, stack, nil)
+}
 
 func (s *ComponentSuite) SetupSuite() {
 	s.InitConfig()
