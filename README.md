@@ -275,7 +275,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_datadog_configuration"></a> [datadog\_configuration](#module\_datadog\_configuration) | github.com/cloudposse-terraform-components/aws-datadog-credentials//src/modules/datadog_keys | v1.535.11 |
+| <a name="module_datadog_configuration"></a> [datadog\_configuration](#module\_datadog\_configuration) | github.com/cloudposse-terraform-components/aws-datadog-credentials//src/modules/datadog_keys | v1.535.12 |
 | <a name="module_datadog_monitors"></a> [datadog\_monitors](#module\_datadog\_monitors) | cloudposse/platform/datadog//modules/monitors | 1.6.0 |
 | <a name="module_datadog_monitors_merge"></a> [datadog\_monitors\_merge](#module\_datadog\_monitors\_merge) | cloudposse/config/yaml//modules/deepmerge | 1.0.2 |
 | <a name="module_iam_roles"></a> [iam\_roles](#module\_iam\_roles) | ../account-map/modules/iam-roles | n/a |
